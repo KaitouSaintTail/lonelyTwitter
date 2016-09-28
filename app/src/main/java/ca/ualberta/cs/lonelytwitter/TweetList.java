@@ -26,7 +26,7 @@ public class TweetList {
         return tweets.get(i);
     }
 
-    public void delete(Tweet a){
+    public void removeTweet(Tweet a){
         tweets.remove(a);
     }
 
