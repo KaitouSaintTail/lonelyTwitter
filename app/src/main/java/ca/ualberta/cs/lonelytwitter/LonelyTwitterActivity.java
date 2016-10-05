@@ -1,3 +1,10 @@
+/*
+Copyright (c) 2016 Team 20, CMPUT 301, University of Alberta - ALl Rights Reserved
+You may use, distribute and copy all or parts of this code under terms and conditions of
+University of ALberta and the Code of Student Behavior.
+You can find the copy of licence at http://www.github.com/Team20/...
+For further information, contaact me as abc@abv.com
+ */
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -24,7 +31,45 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * This is the main view class of lonelyTwitter project. <p> It handles all
+ * user interaction as well as file manipulations. </p>
+ * <pre> All the files are stored in the form of "json" files stored in Emulator,
+ * accessible from Android Device Monitor</pre>
+ * <code> Pseudo Code sample:
+ * open some file ... <br>
+ * attach some text ... <br>
+ * close the file ... <br>
+ * </code>
+ * <ul>
+ * <li>an item</li>
+ * <li>another item</li>
+ * <li>another item</li>
+ * </ul>
+ * <ol>
+ * <li>an item</li>
+ * <li>another item</li>
+ * <li>another item</li>
+ * </ol>
+ *
+ * @author cjiang2
+ * @see NormalTweet
+ * @see Tweet
+ * @see ImportantTweet
+ * @see TweetList
+ * @see TweetTooLongException
+ * @since 1.0
+ * @deprecated
+ */
+
+
 public class LonelyTwitterActivity extends Activity {
+
+	/**
+	 * This is the file name that is being saved / loaded and cotains all the tweets.
+	 * @see #loadFromFile()
+	 * @see #saveInFile()
+	 */
 
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
@@ -73,6 +118,7 @@ public class LonelyTwitterActivity extends Activity {
 
 	}
 
+	/** call when the activity starts*/
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -82,6 +128,12 @@ public class LonelyTwitterActivity extends Activity {
 				R.layout.list_item, tweetList);
 		oldTweetsList.setAdapter(adapter);
 	}
+
+	/**
+	 * This method loads the tweets from FILE_NAME (file.sav), and
+	 * @throws FileNotFoundException
+	 * @exception RuntimeException
+	 */
 
 	private void loadFromFile() {
 		try {
@@ -103,7 +155,13 @@ public class LonelyTwitterActivity extends Activity {
 			throw new RuntimeException();
 		}
 	}
-	
+
+	/**
+	 * This method saves the tweets to FILE_NAME (file.sav), and
+	 * @throws FileNotFoundException
+	 * @exception RuntimeException
+	 */
+
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
