@@ -7,9 +7,11 @@ import java.util.List;
  * Created by cjiang2 on 9/27/16.
  */
 public class TweetList {
+
     /**
-     * The Tweets.
+     * This is the TweetList that holds the tweets.
      */
+
     List<Tweet> tweets = new ArrayList<Tweet>();
 
     /**
